@@ -1,12 +1,31 @@
 # app/robo_advisor.py
 
+import requests
+import json
+import dotenv
+import datetime
+
+request_url ="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo"
+response = requests.get(request_url)
+
+#print(type(response))
+#print(response.status_code)
+#print(response.text)
+
+parsed_response = json.loads(response.text)
+
+breakpoint()
+
+
+quit()
+
 symbol = "0"
 symbol_list =[]
 while symbol != "done":
     
     symbol = input("Please enter the stock symbols of your choice. When done, type 'done': ")
     
-    if float(len(symbol)) <= 5:
+    if float(len(symbol)) <= 5 and symbol.isalpha():
         symbol_list.append(symbol)
         pass
     else:
@@ -17,7 +36,6 @@ while symbol != "done":
     
     
     pass    
-
 
 symbol_list.remove("done")
 
