@@ -3,7 +3,10 @@
 import requests
 import json
 import dotenv
-import datetime
+from datetime import datetime
+
+now = datetime.now()
+request_time = now.strftime("%Y/%m/%d %H:%M:%S")
 
 request_url ="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo"
 response = requests.get(request_url)
@@ -47,7 +50,7 @@ print("-------------------------")
 print("SELECTED SYMBOLS: ", symbol_list)
 print("-------------------------")
 print("REQUESTING STOCK MARKET DATA...")
-print("REQUEST AT: 2018-02-20 02:00pm")
+print("REQUEST AT: ", request_time)
 print("-------------------------")
 print("LATEST DAY: ", last_refreshed)
 print("LATEST CLOSE: $100,000.00")
