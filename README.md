@@ -27,10 +27,12 @@ From within the virtual environment, install the required packages specified in 
 ```sh
 pip install -r requirements.txt
 ```
+In order to run the app, you need an API key from https://www.alphavantage.co/ After getting the API key, create a .env file in your text editor and place the API key in a variable called ALPHAVANTAGE_API_KEY.
 
-
+This will allow you to run your code properly.
 
 # Running the App
+
 
 You should be able to initialize and run the app by entering this into the command line:
 
