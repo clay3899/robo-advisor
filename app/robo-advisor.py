@@ -5,9 +5,9 @@ from datetime import datetime
 import os
 
 import requests
-import dotenv
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)
@@ -16,12 +16,42 @@ def to_usd(my_price):
 now = datetime.now()
 request_time = now.strftime("%Y/%m/%d %H:%M:%S")
 
-request_url ="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo"
+symbol = input("Please enter the stock symbols of your choice. When done, type 'done': ")
+
+if float(len(symbol)) <= 5 and symbol.isalpha():
+        pass
+else:
+        print("Error: Please enter a valid stock symbol")
+        exit()
+        pass    
+
+#symbol_list =[]
+#while symbol != "done":
+#    
+#    symbol = input("Please enter the stock symbols of your choice. When done, type 'done': ")
+#    
+#    if float(len(symbol)) <= 5 and symbol.isalpha():
+#        symbol_list.append(symbol)
+#        pass
+#    else:
+#        print("Error: Please enter a valid stock symbol")
+#        pass    
+#        
+#    
+#    
+#    
+#    pass    
+#
+#symbol_list.remove("done")
+
+
+
+
+api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
+
+request_url =f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}"
 response = requests.get(request_url)
 
-#print(type(response))
-#print(response.status_code)
-#print(response.text)
 
 parsed_response = json.loads(response.text)
 tsd = parsed_response["Time Series (Daily)"]
@@ -56,25 +86,7 @@ recent_low = min(low_prices)
 
 #quit()
 
-symbol = "0"
-symbol_list =[]
-while symbol != "done":
-    
-    symbol = input("Please enter the stock symbols of your choice. When done, type 'done': ")
-    
-    if float(len(symbol)) <= 5 and symbol.isalpha():
-        symbol_list.append(symbol)
-        pass
-    else:
-        print("Error: Please enter a valid stock symbol")
-        pass    
-        
-    
-    
-    
-    pass    
 
-symbol_list.remove("done")
 
 
 csv_file_path = os.path.join(os.path.dirname(__file__), "..", "data", "prices.csv")
@@ -103,7 +115,7 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
 
 
 print("-------------------------")
-print("SELECTED SYMBOLS: ", symbol_list)
+print("SELECTED SYMBOLS: ", symbol)
 print("-------------------------")
 print("REQUESTING STOCK MARKET DATA...")
 print("REQUEST AT: ", request_time)
