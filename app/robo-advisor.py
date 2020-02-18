@@ -30,6 +30,17 @@ last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 latest_close = tsd[latest_day]["4. close"]
 
 
+#get the high price from each day
+high_prices = []
+
+for d in dates:
+    high_price = tsd[d]["2. high"]
+    high_prices.append(float(high_price))
+    pass
+
+#maximum of all the high prices
+recent_high = max(high_prices)
+
 #breakpoint()
 
 
@@ -64,7 +75,7 @@ print("REQUEST AT: ", request_time)
 print("-------------------------")
 print("LATEST DAY: ", last_refreshed)
 print("LATEST CLOSE: ", to_usd(float(latest_close)))
-print("RECENT HIGH: $101,000.00")
+print("RECENT HIGH: ", to_usd(float(recent_high)))
 print("RECENT LOW: $99,000.00")
 print("-------------------------")
 print("RECOMMENDATION: BUY!")
