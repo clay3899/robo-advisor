@@ -87,15 +87,17 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
     writer.writeheader() # uses fieldnames set above
     
     #looping to write row
-    writer.writerow({
-        "timestamp": "TODO",
-        "open": "TODO",
-        "high": "TODO",
-        "low": "TODO",
-        "close": "TODO",
-        "volume":"TODO",
-        })
-   
+    for d in dates:
+        daily_prices = tsd[d]
+        writer.writerow({
+            "timestamp": d,
+            "open": daily_prices["1. open"],
+            "high": daily_prices["2. high"],
+            "low": daily_prices["3. low"],
+            "close": daily_prices["4. close"],
+            "volume":daily_prices["5. volume"],
+            })
+        pass
 
 
 
