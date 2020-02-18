@@ -7,6 +7,7 @@ import os
 import requests
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 def to_usd(my_price):
@@ -40,14 +41,15 @@ for s in symbol_list:
     
     request_url =f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={s}&apikey={api_key}"
     response = requests.get(request_url)
+    #breakpoint()
     
-    if 200 <= response.status_code <= 299:
-        parsed_response = json.loads(response.text)
-        tsd = parsed_response["Time Series (Daily)"]
+    if "Error Message" in response.text:
+        print("ERROR: YOU ENTERED AN INVALID SYMBOL.")
+        exit()
         pass
     else:
-        print("ERROR: YOU ENTERED AN INVALID SYMBOL")
-        exit()
+        parsed_response = json.loads(response.text)
+        tsd = parsed_response["Time Series (Daily)"]
         pass
 
     
@@ -149,6 +151,13 @@ for s in symbol_list:
     print("-------------------------")
     print("HAPPY INVESTING!")
     print("-------------------------")
+
+
+    
+
+
+
+
 
 
     pass

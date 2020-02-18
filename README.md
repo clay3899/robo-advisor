@@ -13,39 +13,6 @@ After cloning the repo, navigate there from the command-line:
 cd ~/Desktop/robo-advisor
 ```
 
-Use your text editor or the command-line to create a new sub-directory called "app" with a file called "robo_advisor.py", and then place the following contents inside:
-
-```sh
-# app/robo_advisor.py
-
-print("-------------------------")
-print("SELECTED SYMBOL: XYZ")
-print("-------------------------")
-print("REQUESTING STOCK MARKET DATA...")
-print("REQUEST AT: 2018-02-20 02:00pm")
-print("-------------------------")
-print("LATEST DAY: 2018-02-20")
-print("LATEST CLOSE: $100,000.00")
-print("RECENT HIGH: $101,000.00")
-print("RECENT LOW: $99,000.00")
-print("-------------------------")
-print("RECOMMENDATION: BUY!")
-print("RECOMMENDATION REASON: TODO")
-print("-------------------------")
-print("HAPPY INVESTING!")
-print("-------------------------")
-
-```
-Make sure to save Python files like this whenever you're done editing them. After setting up a virtual environment, we will be ready to run this file.
-
-Use your text editor or the command-line to create a new file called "requirements.txt", and then place the following contents inside:
-
-```sh
-requests
-python-dotenv
-```
-After setting up a virtual environment, we will be ready to install these packages.
-
 ## Environment SetUp
 
 Create and activate a new Anaconda virtual environment:
