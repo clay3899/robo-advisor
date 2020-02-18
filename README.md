@@ -68,6 +68,6 @@ pip install -r requirements.txt
 You should be able to initialize and run the app by entering this into the command line:
 
 ```sh
-python app/robo_advisor.py
+python app/robo-advisor.py
 ```
 
