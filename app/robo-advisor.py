@@ -124,25 +124,29 @@ for s in symbol_list:
     print("-------------------------")
     
     
-    threshold = .04
+    threshold = .08
     decision = "unsure"
     reason = "IDK"
+
+
     if float(latest_close) == float(recent_low):
         decision = "BUY"
-        reason = "STOCK UNDERVALUED"
+        reason = "NEVER SELL LOW. UNLESS THE COMPANY IS BURNING TO THE GROUND."
         pass
     elif float(latest_close) >= (float(recent_high) - (float(recent_high) * threshold)):
         decision = "HOLD or SELL"
-        reason = "NEVER BUY HIGH"
+        reason = "NEVER BUY HIGH. UNLESS YOU ARE FROM THE FUTURE AND KNOW IT WILL CONTINUE RISING."
         pass
     elif float(latest_close) <= (float(recent_low) + (float(recent_low) * threshold)):
         decision = "BUY"
-        reason = "STOCK MAY RECOVER"
+        reason = "STOCK MAY RECOVER. RECENT TRENDS SHOW THE STOCK IS IN RECOVERY"
         pass
     else:
         decision = "BUY"
-        reason = "I WANT MY COMMISSION"
+        reason = "I WANT MY COMMISSION. LOGIC SYSTEMS CANNOT COMPUTE."
         pass
+
+
 
     print("RECOMMENDATION: ", decision)
     print("RECOMMENDATION REASON: ", reason)
