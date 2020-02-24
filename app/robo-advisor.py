@@ -30,16 +30,21 @@ while symbol != "done":
             symbol_list.append(symbol)
             counter = counter + 1
             pass
-    elif counter > 5:
-            print("Error: System can only compute 5 stocks")
-            pass
+    
     else:
             print("Error: Please enter a valid stock symbol")
             pass    
                 
     pass
 
+
+
 symbol_list.remove("done")
+
+if len(symbol_list) >= 5:
+    print("Error: System can only compute 5 stocks")
+    exit()
+    pass
 
 for s in symbol_list:
     
