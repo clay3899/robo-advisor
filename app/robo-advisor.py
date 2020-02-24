@@ -18,12 +18,12 @@ now = datetime.now()
 request_time = now.strftime("%Y/%m/%d %H:%M:%S")
 api_key = os.environ.get("ALPHAVANTAGE_API_KEY", default ="OOPS")
 
-if api_key = "OOPS":
+if api_key == "OOPS":
     print("Please put an API key in the .env file you created called ALPHAVANTAGE_API_KEY")
     exit()
     pass
 
-counter = 0
+
 symbol_list =[]
 symbol = "0"
 while symbol != "done":
@@ -31,9 +31,8 @@ while symbol != "done":
 
     symbol = input("Please enter the stock symbols of your choice. When done, type 'done': ")
 
-    if float(len(symbol)) <= 5 and symbol.isalpha() and counter <= 5:
+    if float(len(symbol)) <= 5 and symbol.isalpha():
             symbol_list.append(symbol)
-            counter = counter + 1
             pass
     
     else:
