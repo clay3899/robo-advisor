@@ -24,6 +24,16 @@ if api_key == "OOPS":
     pass
 
 
+
+print("WELCOME TO THE ROBO ADVISOR")
+
+print("HERE WE'LL TELL YOU WHAT STOCKS TO BUY OR SELL")
+
+print("GET READY TO MAKE MONEY!")
+
+
+
+
 symbol_list =[]
 symbol = "0"
 while symbol != "done":
