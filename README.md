@@ -37,6 +37,17 @@ This will allow you to run your code properly.
 You should be able to initialize and run the app by entering this into the command line:
 
 ```sh
-python app/robo-advisor.py
+python app/robo_advisor.py
 ```
+
+
+# Testing
+
+```sh
+pytest
+```
+Use Pytest to test the app
+automatic testing will be done on travis after
+
+Code Quality will also be run
 

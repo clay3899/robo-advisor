@@ -1,0 +1,8 @@
+dist: xenial
+language: python
+python:
+  - "3.7"
+insall:
+  - pip install -r requirement.txt
+script:
+  - pytest
