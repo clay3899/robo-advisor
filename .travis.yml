@@ -3,6 +3,6 @@ language: python
 python:
   - "3.7"
 insall:
-  - pip install -r requirement.txt
+  - pip install -r requirements.txt
 script:
   - pytest
